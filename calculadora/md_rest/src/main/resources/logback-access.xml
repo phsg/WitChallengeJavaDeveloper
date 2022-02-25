@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="NAME" value="mdRest" />
+	<property name="LOG_ACCESS" value="logs/access" />
+
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%fullRequest%n%n%fullResponse</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="app" class="ch.qos.logback.core.FileAppender">
+		<file>${LOG_ACCESS:-env/}/${NAME:-env/}_access.log</file>
+		<append>true</append>
+		<encoder>
+			<pattern>%fullRequest%n%n%fullResponse</pattern>
+		</encoder>
+	</appender>
+
+	<appender-ref ref="STDOUT" />
+	<appender-ref ref="app" />
+
+</configuration>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="NAME" value="mdCalculator" />
+	<property name="LOG_DIR" value="logs/app" />
+	<property name="LOG_DIR_DEBUG" value="logs/debug" />
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%-4relative | [%thread] | %-5level | %logger{35} | CorrelationId=>%X{CorrelationId} | Origin=>%X{Origin} > %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="app"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_DIR:-env/}/${NAME:-env/}_log.log</file>
+		<append>true</append>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_DIR:-env/}/${NAME}_log.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<maxFileSize>5MB</maxFileSize>
+			<totalSizeCap>1GB</totalSizeCap>
+			<maxHistory>60</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} | %-4relative | [%thread] | %-5level | %logger{35} | CorrelationId=>%X{CorrelationId} | Origin=>%X{Origin} -> %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="debug"
+		class="ch.qos.logback.core.FileAppender">
+		<file>${LOG_DIR_DEBUG:-env/}/${NAME:-env/}_debug.log</file>
+		<append>true</append>
+		<encoder>
+			<pattern>%d{dd-MM-yyyy HH:mm:ss.SSSS} [%thread] %-5level %logger{36}.%M | CorrelationId=>%X{CorrelationId} | Origin=>%X{Origin} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="trace" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_DIR:-env/}/${NAME:-env/}_trace.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_DIR:-env/}/${NAME}_trace.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<maxFileSize>5MB</maxFileSize>
+			<totalSizeCap>1GB</totalSizeCap>
+			<maxHistory>60</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} | CorrelationId=>%X{CorrelationId} | Origin=>%X{Origin} -> %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.wit.challenge.calculadora.calculator" level="info">
+		<appender-ref ref="app" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<logger name="com.wit.challenge.calculadora.calculator" level="trace">
+		<appender-ref ref="trace" />
+ 	</logger>
+ 
+ 	<root level="debug">
+		<appender-ref ref="debug" />
+	</root>
+</configuration>

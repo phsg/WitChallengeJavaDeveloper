@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "8be6fc89-6932-4071-8145-917a7ba7a456",
+		"name": "WitChallenger",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sum",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "a",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "b",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/operation/sum/v1?a=8&b=7.45",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"operation",
+						"sum",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "8"
+						},
+						{
+							"key": "b",
+							"value": "7.45"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subtraction",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "CorrelationId",
+						"value": "ABC123",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "a",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "b",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/operation/subtraction/v1?a=20&b=7.45",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"operation",
+						"subtraction",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "20"
+						},
+						{
+							"key": "b",
+							"value": "7.45"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Multiplication",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "a",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "b",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/operation/multiplication/v1?a=2&b=7.45",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"operation",
+						"multiplication",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "2"
+						},
+						{
+							"key": "b",
+							"value": "7.45"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Division",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "a",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "b",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/operation/division/v1?a=11.3&b=2.75",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"operation",
+						"division",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "11.3"
+						},
+						{
+							"key": "b",
+							"value": "2.75"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
