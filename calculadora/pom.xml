@@ -16,7 +16,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>calculadora</name>
-	<description>Module Parent Teste</description>
+	<description>Module Parent</description>
 	
 	<properties>
 		<java.version>11</java.version>
